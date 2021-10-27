@@ -1,0 +1,63 @@
+.main{
+  min-height: calc(100vh - 40px - 56px);
+}
+
+.navbar-collapse{
+  background-color: #fff;
+  margin: 0 -12px;
+  padding-left: 12px;
+  @media (min-width: 992px) { 
+    background-color: transparent;
+    margin: 0;
+    padding-left: 0;
+  }
+}
+
+.carousel-indicators{
+  z-index: 1080;
+  display: none;
+  @media (min-width: 768px) { 
+    display: flex;
+    justify-content: center;
+  }
+  @media (min-width: 992px) { 
+    justify-content: start;
+  }
+}
+
+.carousel-title{
+  position: absolute;
+  top: 40%;
+  color: #fff;
+  text-align: center;
+  width: 100%;
+  @media (min-width: 768px) { 
+    top: 42%;
+  }
+  @media (min-width: 992px) { 
+    top: 15%;
+  }
+}
+.carousel-text{
+  font-size: 24px;
+  text-shadow: black 0.1em 0.1em 0.2em;
+  @media (min-width: 768px) { 
+    font-size: 40px;
+  }
+  @media (min-width: 992px) { 
+    font-size: 64px;
+  }
+}
+
+.carousel-inner{
+  @media (min-width: 992px) { 
+    height: 100vh;
+  }
+}
+
+.subNav{
+  .nav-link:hover{
+    background-color: rgba($primary, .5);
+    color: $dark;
+  }
+}
