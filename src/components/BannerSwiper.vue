@@ -24,7 +24,7 @@
     </div>
     <div class="carousel-inner">
       <img
-        src="@/assets/images/people6.png"
+        src="@/assets/images/people.png"
         class="position-absolute bottom-0 start-50 translate-middle-x zTop d-none d-lg-block"
       />
       <div class="carousel-item active" data-bs-interval="5000">
