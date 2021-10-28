@@ -1,5 +1,6 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light">
+  <nav class="navbar navbar-expand-lg navbar-light"
+  :class="{ 'changeNav': scroll }">
     <div class="container">
       <a class="navbar-brand" href="#">Taiwan</a>
       <button
@@ -35,10 +36,25 @@
 import emitter from '@/methods/Emitter';
 
 export default {
+  data() {
+    return {
+      scroll: '',
+    };
+  },
   methods: {
     emitCategory(isSpots) {
       emitter.emit('emit-category', isSpots);
     },
+  },
+  mounted() {
+    window.addEventListener('scroll', () => {
+      this.scroll = document.documentElement.scrollTop > 40;
+    });
+  },
+  unmounted() {
+    window.removeEventListener('scroll', () => {
+      this.scroll = document.documentElement.scrollTop > 40;
+    });
   },
 };
 </script>

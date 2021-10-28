@@ -1,7 +1,9 @@
 <template>
-  <Navbar class="position-absolute top-0 zTop w-100"/>
+  <div class="fixNav">
+    <Navbar/>
+  </div>
   <BannerSwiper />
-  <div class="main container mb-3">
+  <div class="main container mb-5">
     <div class="d-flex align-items-center mb-3">
       <i class="fas fa-map-marked-alt fa-2x text-primary me-2"></i>
       <h2 class="fs-3 fw-bold">台灣旅行行程推薦</h2>
@@ -39,6 +41,7 @@
       </div>
     </div>
   </div>
+  <GoTop />
   <Footer />
 </template>
 
@@ -50,16 +53,13 @@ import SpotImg from '@/assets/images/spotImg.jpg';
 import RoomImg from '@/assets/images/roomImg.jpg';
 import HomeCard from '@/components/HomeCard.vue';
 import BannerSwiper from '@/components/BannerSwiper.vue';
+import GoTop from '@/components/GoTop.vue';
 
 export default {
   data() {
     return {
       spotImg: SpotImg,
       roomImg: RoomImg,
-      // filterSpots: [],
-      // filterHotels: [],
-      tempSpots: '',
-      tempHotels: '',
     };
   },
   components: {
@@ -67,29 +67,16 @@ export default {
     Footer,
     BannerSwiper,
     HomeCard,
+    GoTop,
   },
   computed: {
     ...mapGetters(['spotsList', 'hotelsList', 'filterSpots', 'filterHotels']),
   },
   methods: {
     ...mapActions(['init']),
-    filterData() {
-      const temp = [];
-      for (let i = 0; i < 6; i += 1) {
-        const random = Math.floor(Math.random() * this.spotsList.length);
-        temp.push(random);
-      }
-      temp.forEach((item) => {
-        this.filterSpots.push(this.spotsList[item]);
-        this.filterHotels.push(this.hotelsList[item]);
-      });
-      this.filterSpots.sort((a, b) => a.CitySort - b.CitySort);
-      this.filterHotels.sort((a, b) => a.CitySort - b.CitySort);
-    },
   },
   created() {
     this.init();
-    // this.filterData();
   },
 };
 </script>

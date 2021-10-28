@@ -94,8 +94,8 @@ export default {
           city: '台北',
         },
         {
-          name: '中正紀念堂',
-          city: '台北',
+          name: '韭菜花田',
+          city: '桃園',
         },
         {
           name: '日月潭',
@@ -106,7 +106,7 @@ export default {
           city: '南投',
         },
         {
-          name: '綠色隧道',
+          name: '美術館',
           city: '台南',
         },
         {

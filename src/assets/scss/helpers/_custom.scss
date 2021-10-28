@@ -2,17 +2,6 @@
   min-height: calc(100vh - 40px - 56px);
 }
 
-.navbar-collapse{
-  background-color: #fff;
-  margin: 0 -12px;
-  padding-left: 12px;
-  @media (min-width: 992px) { 
-    background-color: transparent;
-    margin: 0;
-    padding-left: 0;
-  }
-}
-
 .carousel-indicators{
   z-index: 1080;
   display: none;
@@ -52,12 +41,5 @@
 .carousel-inner{
   @media (min-width: 992px) { 
     height: 100vh;
-  }
-}
-
-.subNav{
-  .nav-link:hover{
-    background-color: rgba($primary, .5);
-    color: $dark;
   }
 }

@@ -1,7 +1,9 @@
 <template>
-  <Navbar/>
+  <div class="fixNav">
+    <Navbar/>
+  </div>
   <template v-if="isSpots">
-      <div class="d-center bg-center bg-cover py-6 mb-4"
+      <div class="d-center bg-center bg-cover py-6 mb-4 mt-5"
       :style="
         {backgroundImage: 'url('+ spotImg +')'}
       ">
@@ -9,11 +11,11 @@
     </div>
   </template>
   <template v-else>
-      <div class="d-center bg-center bg-cover py-6 mb-4"
+      <div class="d-center bg-center bg-cover py-6 mb-4 mt-5"
       :style="
         {backgroundImage: 'url('+ roomImg +')'}
       ">
-      <p class="py-6 fs-2 fw-bold text-light">說走就走的台灣旅行</p>
+      <p class="py-6 fs-2 fw-bold text-light">就像在自己家一樣的台灣旅店</p>
     </div>
   </template>
   <div class="main container">
