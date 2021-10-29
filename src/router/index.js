@@ -8,6 +8,7 @@ const routes = [
   },
   {
     path: '/',
+    name: 'layout',
     component: () => import('../views/Layout.vue'),
     children: [
       {
@@ -16,9 +17,19 @@ const routes = [
         component: () => import('../views/Spots.vue'),
       },
       {
+        path: 'Spot/:id',
+        name: 'Spot',
+        component: () => import('../views/Detail.vue'),
+      },
+      {
         path: 'Hotels',
         name: 'Hotels',
         component: () => import('../views/Hotels.vue'),
+      },
+      {
+        path: 'Hotel/:id',
+        name: 'Hotel',
+        component: () => import('../views/Detail.vue'),
       },
     ],
   },

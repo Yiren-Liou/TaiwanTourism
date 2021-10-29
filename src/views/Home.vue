@@ -9,13 +9,13 @@
       <h2 class="fs-3 fw-bold">台灣旅行行程推薦</h2>
     </div>
     <p class="mb-3">熱門打卡景點、自然系秘境，全台各地玩透透，周末假日和家人朋友一起出遊踏青囉 ! </p>
-    <HomeCard :filterData="filterSpots" />
+    <HomeCard :filterData="filterSpots" :category="'Spot'"/>
     <div class="d-flex align-items-center mb-3">
       <i class="fas fa-home fa-2x text-primary me-2"></i>
       <h2 class="fs-3 fw-bold">台灣旅行住宿推薦</h2>
     </div>
     <p class="mb-3">舒服的住宿空間消除一天的遊玩疲勞，隔天帶著好心情出發新的旅程 ! </p>
-    <HomeCard :filterData="filterHotels" />
+    <HomeCard :filterData="filterHotels" :category="'Hotel'" />
     <div class="row mb-4">
       <div class="col-md-6 bgContainer mb-3 mb-md-0">
         <router-link to="/Spots"

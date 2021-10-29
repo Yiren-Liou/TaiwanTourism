@@ -14,6 +14,7 @@ export default createStore({
     filterSpots: [],
     filterHotels: [],
     regions: '',
+    detail: '',
     isLoading: false,
   },
   mutations: {
@@ -28,7 +29,7 @@ export default createStore({
       const Authorization = `hmac username="${AppID}", algorithm="hmac-sha1", headers="x-date", signature="${HMAC}"`;
       state.headers.headers = { Authorization, 'X-Date': GMTString };
     },
-    SPOTLIST(state, payload) {
+    SPOTSLIST(state, payload) {
       state.spotsList = payload;
     },
     HOTELSLIST(state, payload) {
@@ -201,6 +202,9 @@ export default createStore({
           break;
       }
     },
+    DETAIL(state, dataList) {
+      state.detail = dataList.list.filter((item) => item.ID === dataList.id);
+    },
   },
   actions: {
     getSpots(context) {
@@ -209,7 +213,7 @@ export default createStore({
         .get(this.state.spotsUrl, this.state.headers)
         .then((res) => {
           if (res.status === 200) {
-            context.commit('SPOTLIST', res.data);
+            context.commit('SPOTSLIST', res.data);
             context.commit('MODIFY_DATA', { category: 'spots', data: this.state.spotsList });
             context.commit('FILTER', { category: 'spots', dataList: this.state.spotsList });
             context.commit('REGIONS', this.state.spotsList);
@@ -242,6 +246,20 @@ export default createStore({
       dispatch('getSpots');
       dispatch('getHotels');
     },
+    getDetail(context, { category, id }) {
+      let temp = '';
+      switch (category) {
+        case 'Spot':
+          temp = context.getters.spotsList;
+          break;
+        case 'Hotel':
+          temp = context.getters.hotelsList;
+          break;
+        default:
+          break;
+      }
+      context.commit('DETAIL', { category, id, list: temp });
+    },
   },
   getters: {
     spotsList(state) {
@@ -258,6 +276,9 @@ export default createStore({
     },
     regions(state) {
       return state.regions;
+    },
+    detail(state) {
+      return state.detail;
     },
   },
   modules: {

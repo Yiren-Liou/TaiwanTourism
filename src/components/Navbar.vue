@@ -4,17 +4,17 @@
     <div class="container">
       <a class="navbar-brand" href="#">Taiwan</a>
       <button
-        class="navbar-toggler"
+        class="btn d-lg-none"
         type="button"
         data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
+        data-bs-target="#mainNav"
+        aria-controls="mainNav"
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="collapse navbar-collapse" id="mainNav">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <router-link to="/Spots" class="nav-link" @click="emitCategory(true)">

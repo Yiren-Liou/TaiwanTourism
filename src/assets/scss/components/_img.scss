@@ -23,7 +23,27 @@
   }
 }
 
-@keyframes scaleLarge {
-  0%   {transform: scale(1);}
-  100% {transform: scale(1.5);}
+.mainImage{
+  height: 240px;
+  width: 100%;
+  @media (min-width: 768px) {
+    height: 280px;
+  }
+  @media (min-width: 992px) {
+    height: 320px;
+  }
+}
+
+.detailImg{
+  height: 80px;
+  width: 100%;
+  &:hover{
+    cursor: pointer;
+  }
+  @media (min-width: 768px) {
+    height: 100px;
+  }
+  @media (min-width: 992px) {
+    height: 120px;
+  }
 }

@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <CardList />
+    <CardList :category="category"/>
   </div>
 </template>
 
@@ -8,6 +8,11 @@
 import CardList from '@/components/CardList.vue';
 
 export default {
+  data() {
+    return {
+      category: 'Spot',
+    };
+  },
   components: {
     CardList,
   },

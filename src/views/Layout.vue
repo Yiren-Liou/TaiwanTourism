@@ -33,6 +33,7 @@
 
 <script>
 import emitter from '@/methods/Emitter';
+import collapseNav from '@/methods/collapseNav';
 import Navbar from '@/components/Navbar.vue';
 import Footer from '@/components/Footer.vue';
 import SubNav from '@/components/SubNav.vue';
@@ -51,6 +52,14 @@ export default {
     Navbar,
     Footer,
     SubNav,
+  },
+  watch: {
+    $route() {
+      if (this.$route.path !== 'layout') {
+        console.log('collapseNav');
+        collapseNav();
+      }
+    },
   },
   mounted() {
     emitter.on('emit-category', (item) => {

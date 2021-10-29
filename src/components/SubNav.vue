@@ -25,38 +25,31 @@ export default {
   data() {
     return {
       region: this.$route.query.region,
-      docWidth: '',
+      pathName: this.$route.name,
+      goPath: '',
     };
   },
   watch: {
-    docWidth() {
-      this.docWidth = document.documentElement.scrollWidth;
+    $route() {
+      if (this.$route.name !== this.pathName) {
+        this.pathName = this.$route.name;
+      }
     },
   },
   computed: {
-    windowSmallWidth() {
-      if (this.docWidth < 576) {
-        return true;
-      }
-      return false;
-    },
     ...mapGetters(['regions']),
   },
   methods: {
     emitRegion(e) {
-      this.region = e.target.textContent;
-      emitter.emit('emit-region', this.region.trim());
+      this.region = e.target.textContent.trim();
+      if (this.pathName !== ('Spots' || 'Hotels')) {
+        this.pathName = `${this.pathName}s`;
+      }
+      this.$router.push({
+        path: `/${this.pathName}`, query: { region: this.region, page: 1 },
+      });
+      emitter.emit('emit-region', this.region);
     },
-  },
-  mounted() {
-    window.addEventListener('resize', () => {
-      this.docWidth = document.documentElement.scrollWidth;
-    });
-  },
-  unmounted() {
-    window.removeEventListener('resize', () => {
-      this.docWidth = document.documentElement.scrollWidth;
-    });
   },
 };
 </script>
