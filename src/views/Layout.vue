@@ -28,6 +28,7 @@
       </div>
     </div>
   </div>
+  <GoTop />
   <Footer />
 </template>
 
@@ -37,6 +38,7 @@ import collapseNav from '@/methods/collapseNav';
 import Navbar from '@/components/Navbar.vue';
 import Footer from '@/components/Footer.vue';
 import SubNav from '@/components/SubNav.vue';
+import GoTop from '@/components/GoTop.vue';
 import SpotImg from '@/assets/images/spotImg.jpg';
 import RoomImg from '@/assets/images/roomImg.jpg';
 
@@ -52,11 +54,11 @@ export default {
     Navbar,
     Footer,
     SubNav,
+    GoTop,
   },
   watch: {
     $route() {
       if (this.$route.path !== 'layout') {
-        console.log('collapseNav');
         collapseNav();
       }
     },

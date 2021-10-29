@@ -21,7 +21,6 @@ export default {
     ...mapGetters(['detail']),
   },
   created() {
-    console.log({ category: this.category, id: this.id });
     this.getDetail();
   },
 };
