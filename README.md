@@ -1,5 +1,5 @@
 # 瀏覽台灣景點旅宿 
-#### `vue.js` / `vue-cli` / `vuex`
+###### ` vue.js ` / ` vue-cli ` / ` vuex `
 
 > Demo :  [瀏覽台灣景點旅宿](https://yiren-liou.github.io/TaiwanTourism/#/)
 
